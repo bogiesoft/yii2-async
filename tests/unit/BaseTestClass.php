@@ -178,4 +178,28 @@ class BaseTestClass extends \yii\codeception\TestCase
 
         $this->fail('Async doesn\'t reject invalid task.');
     }
+
+    public function testSubscribe()
+    {
+        $manager = new \Spork\ProcessManager();
+
+        $task = new TestTask();
+        $task->id = 1;
+
+
+        $fork = $manager->fork(
+            function () use ($task) {
+                return \Yii::$app->asyncFork->receiveTask($task::$queueName, true);
+            }
+        );
+
+        \Yii::$app->async->sendTask($task);
+
+        $fork->then(
+            function (\Spork\Fork $fork) {
+                $task = $fork->getResult();
+                $this->assertEquals(1, $task->execute());
+            }
+        );
+    }
 }

@@ -23,9 +23,10 @@ interface Transport
 
     /**
      * @param string $queueName
+     * @param bool $blocking
      * @return AsyncTask|bool
      */
-    public function receive($queueName);
+    public function receive($queueName, $blocking = false);
 
     /**
      * @param AsyncTask $task
