@@ -10,7 +10,7 @@ Install: `php composer.phar require bazilio/yii2-async:dev-master`
 - php >=5.4
 - Transports:
   - [php-amqp](https://github.com/pdezwart/php-amqp)
-  - [yii2-redis](https://github.com/yiisoft/yii2-redis)
+  - [e96/yii2-redis](https://github.com/E96/yii2-redis)
 
 #####Using with AMQP:
 `php composer.phar require pdezwart/php-amqp:dev-master`
@@ -33,7 +33,16 @@ Install: `php composer.phar require bazilio/yii2-async:dev-master`
 
 
 #####Using with Redis:
-`php composer.phar require yiisoft/yii2-redis:*`
+
+Add this to `repositories` section of your `composer.json`:
+```
+{
+    "type" : "vcs",
+    "url" : "git@github.com:E96/yii2-redis.git"
+}
+```
+
+`php composer.phar require E96/yii2-redis:*`
 
 ```php
 'components' => [

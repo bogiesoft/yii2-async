@@ -20,7 +20,7 @@
         "yiisoft/yii2-codeception": "*",
         "codeception/codeception": "2.0.*",
         "pdezwart/php-amqp": "dev-master",
-        "yiisoft/yii2-redis": "*",
+        "E96/yii2-redis": "*",
         "kriswallsmith/spork": "*"
     },
     "autoload": {
@@ -28,16 +28,22 @@
             "bazilio\\async\\": ""
         }
     },
-    "repositories": [{
-        "type": "package",
-        "package": {
-            "name": "pdezwart/php-amqp",
-            "version": "dev-master",
-            "source": {
-                "url": "https://github.com/pdezwart/php-amqp",
-                "type": "git",
-                "reference": "origin/master"
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "pdezwart/php-amqp",
+                "version": "dev-master",
+                "source": {
+                    "url": "https://github.com/pdezwart/php-amqp",
+                    "type": "git",
+                    "reference": "origin/master"
+                }
             }
+        },
+        {
+            "type" : "vcs",
+            "url" : "git@github.com:E96/yii2-redis.git"
         }
-    }]
+    ]
 }

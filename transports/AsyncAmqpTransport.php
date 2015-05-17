@@ -2,7 +2,6 @@
 namespace bazilio\async\transports;
 
 use bazilio\async\models\AsyncTask;
-use bazilio\async\transports\Exception;
 use yii\base\InvalidCallException;
 
 class AsyncAmqpTransport
