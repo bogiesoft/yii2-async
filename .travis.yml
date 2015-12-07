@@ -6,7 +6,6 @@ php:
   - 5.6
   - 7.0
   - hhvm
-  - hhvm-nightly
 
 # run build against hhvm but allow them to fail
 # http://docs.travis-ci.com/user/build-configuration/#Rows-That-are-Allowed-To-Fail
@@ -14,8 +13,6 @@ matrix:
   fast_finish: true
   allow_failures:
     - php: hhvm
-    - php: hhvm-nightly
-    - php: 7.0
 
 services:
   - redis-server
@@ -31,6 +28,8 @@ cache:
     - $HOME/.composer/cache
 
 install:
+  - pecl install amqp
+  - php -m
   - travis_retry composer self-update && composer --version
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - echo "extension = amqp.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
